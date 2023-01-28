@@ -14,7 +14,7 @@ function sum(a, b) { //eslint-disable-line
   return [theValue, theMessage];
 }
 // Here is the test for sum(); uncomment it to run it
- testSum(4, 7);
+testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -28,11 +28,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-
+  let theProduct = a * b;
+  let multipleMessage = `The product of ${a} and ${b} is ${theProduct}.`;
+  return [theProduct, multipleMessage];
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -49,11 +51,23 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+  let totalSumC = sum(a, b);
+  let newSum = sum(totalSumC[0], c);
+
+
+  let totalMultiple = multiply(a, b);
+  let newProduct = multiply(totalMultiple[0], c);
+
+
+  let thisMessageOne = `${a} and ${b} and ${c} sum to ${newSum[0]}.`;
+  let thisMessageTwo = `The product of ${a} and ${b} and ${c} is ${newProduct[0]}.`;
+
+  return [newSum[0], newProduct[0], thisMessageOne, thisMessageTwo];
 
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -72,11 +86,18 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
 
+  let thisArr = sum(testArray[0], sumArr[1])[0];
+  let totalSum = sum(thisArr, sumArr[2])[0];
+
+  let sumArrMessage = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${totalSum} is their sum.`;
+
+  return [totalSum, sumArrMessage];
+
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -91,12 +112,33 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-function multiplyArray(multArr) { //eslint-disable-line
+function multiplyArray(multArr) { 
+  let newMult = multiply(multArr[0], multArr[1])[0];
+  let multProduct = multiply(newMult, multArr[2])[0];
 
+  let multArrMessage = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${multProduct}.`;
+
+  return[multProduct, multArrMessage];
+  //eslint-disable-line
 }
 
-// Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+
+/*
+ use multiply() to  do multiplication:
+
+ 1.will only need [0] of array from multiply()
+ 2.create variable that stores the value of multiply()
+ 3.create another variable store the value of aforementioned variable and a third integer
+ 4.create a message that takes in the variables and the product
+*/
+
+
+
+
+
+
+// Here is the test for multiplyArray(); uncomment it to run it  
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
